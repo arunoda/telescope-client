@@ -15,7 +15,12 @@ var server = http.createServer(function (req, res) {
 
 function loadFile(res, file) {
   console.info('loading file: ', file);
-  res.writeHead(200, {'Content-Type': file.contentType});
+
+  var expiryDate = new Date(Date.now() + 1000 * 3600 * 24);
+  res.writeHead(200, {
+    'Content-Type': file.contentType,
+    'Expires': expiryDate.toGMTString()
+  });
   var fileStream = fs.createReadStream(file.fileName);
   fileStream.pipe(res);
 }
