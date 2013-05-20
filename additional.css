@@ -1,0 +1,12 @@
+.info {
+  padding-top: 10px;
+  border-bottom: 3px solid red;
+}
+
+.info h3 {
+  color: black;
+}
+
+.info h3 a {
+  color: rgb(243, 108, 61);
+}
